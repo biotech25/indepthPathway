@@ -1,4 +1,4 @@
-# How to use IDepathway to perform CSEA and GSEA pathway analysis
+# How to use IndepthPathway to perform WCSEA, CSEA, and GSEA pathway analysis
 
 __IndepthPathway: an integrated tool for in-depth pathway enrichment analysis based on bulk and single cell sequencing data__
 
