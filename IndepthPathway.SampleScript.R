@@ -1,6 +1,6 @@
 ##IMPORTANT: this code block is required for all calculations including both uniConSig and CSEA.
 #setwd("Your Working Directory")
-source("CSEA.modulesVb2.8.R")
+source("IndepthPathway.modulesVb2.8.R")
 gmtfile="ConceptDb/ConceptDb20190624.rmCa.gmt"
 feature.list=read_concepts(gmtfile)
 #if you are using your own molecular concept database, please use the following code generate preCal file containing information about concept redundancy. The molecule concepts need to be provided as gmt file format.
