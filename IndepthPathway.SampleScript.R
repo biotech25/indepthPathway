@@ -18,7 +18,7 @@ compare.list=c(read_concepts("PathwayDb/h.all.v7.5.1.symbols.gmt"),read_concepts
 #perform limma DGE analysis for single cell gene expression data. 
 #provide .gct file that contains single cell gene expression data and .cls file that defines the cell groups, as in the example.
 #please refer to: https://www.genepattern.org/file-formats-guide
-limma=limmaDGE(gctFile="./scDataset/scData_quiescentVsActive.gct",clsFile="J:/GenomeIndex/Pipeline_CSEA2/scDataset/scData_quiescentVsActive.cls")
+limma=limmaDGE(gctFile="./scDataset/scData_quiescentVsActive.gct",clsFile="./scDataset/scData_quiescentVsActive.cls")
 weight=setNames(limma$Signed.Q.Value,row.names(limma))#signed q values will be used as weights for WCSEA analysis
 
 #calculate uniConSig cores that compute functional relations of human genes underlying the highly weighted genes. correct.overfit should be set to False for WCSEA analysis
