@@ -17,7 +17,7 @@ The current version is 2.8.
 
 ## B.	Basic requirements
 
-•	The uniConSig and CSEA modules are compiled in an R package “iDepathway” held at https://github.com/wangxlab/iDepathway 
+•	The uniConSig and CSEA modules are compiled in an R package “IndepthPathway” held at https://github.com/wangxlab/IndepthPathway 
 
 •	To install the package, first install R from CRAN: https://cran.r-project.org/
 
@@ -26,7 +26,7 @@ The current version is 2.8.
 
 ## C. Installing R Packages
 
-•	Find "CSEA.modulesVb2.8.R" file in your folder and see line 1. There is the list of R packages you may have to install unless you did.
+•	Find "IndepthPathway.modulesVb2.8.R" file in your folder and see line 1. There is the list of R packages you may have to install unless you did.
 ```
 packages=c("stringr","qvalue","vegan","tidyr","moments","limma","dplyr","gplots",
            "RColorBrewer","corrplot","pheatmap","igraph","otuSummary","pROC",
@@ -34,12 +34,12 @@ packages=c("stringr","qvalue","vegan","tidyr","moments","limma","dplyr","gplots"
 sapply(packages,require,character=TRUE)
 ```
 
-## D.	How to run IDepathway for pathway enrichment analysis
+## D.	How to run IndepthPathway for pathway enrichment analysis
 •	To calculate uniConSig scores, please load the molecule concept dataset we compiled with precomputed Jaccard matrix:
 ```
 #IMPORTANT: this code block is required for all calculations including both uniConSig and CSEA.
 setwd("your working directory")
-source("CSEA.modulesVb2.8.R")
+source("IndepthPathway.modulesVb2.8.R")
 gmtfile="ConceptDb/ConceptDb20190624.rmCa.gmt"
 feature.list=read_concepts(gmtfile)
 
@@ -57,7 +57,7 @@ compare.list=c(read_concepts("PathwayDb/h.all.v7.5.1.symbols.gmt"),read_concepts
 #perform limma DGE analysis for single cell gene expression data. 
 #provide .gct file that contains single cell gene expression data and .cls file that defines the cell groups, as in the example.
 #please refer to: https://www.genepattern.org/file-formats-guide
-limma=limmaDGE(gctFile="./scDataset/scData_quiescentVsActive.gct",clsFile="J:/GenomeIndex/Pipeline_CSEA2/scDataset/scData_quiescentVsActive.cls")
+limma=limmaDGE(gctFile="./scDataset/scData_quiescentVsActive.gct",clsFile="./scDataset/scData_quiescentVsActive.cls")
 weight=setNames(limma$Signed.Q.Value,row.names(limma))#signed q values will be used as weights for WCSEA analysis
 
 #calculate uniConSig cores that compute functional relations of human genes underlying the highly weighted genes. correct.overfit should be set to False for WCSEA analysis
