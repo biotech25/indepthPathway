@@ -797,7 +797,7 @@ limmaDGE<-function(gctFile,clsFile){ # the comparison is based on increasingly s
   limmaOut<-topTable(fit.eBayes,number=100000000, adjust.method="BH")  # BH, Benjamini and Hochberg FDR adjusted p-value.
   colnames(limmaOut)<-c("Log2FC","AveExpr", "T.Value","P.Value","Q.Value","DGE.odds")
   limmaOut$Signed.Q.Value=-log10(limmaOut$Q.Value)*sign(limmaOut$T.Value)
-  limmaOut<-limmaOut[order(limmaOut$Signed.Q.Value,decreasing = TRUE),]
+  limmaOut<limmaOut[order(limmaOut$Signed.Q.Value,decreasing = TRUE),]
   return(limmaOut)
 }
 
