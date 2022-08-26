@@ -526,6 +526,9 @@ CSEA2<-function(target.score,compare.list,p.cut=0.05,minsize=5,min.numOnList=5,t
     if (!exists("compare.list")){
       stop("please provide the list of concepts to variable: feature.list")
     }
+    if (length(Filter(any,duplicated(names(target.score))))){
+      stop("please make sure that there is no duplicated gene names in your weights")
+    }
     #tmp.weight=target.score$uniConSig
     #names(tmp.weight)=target.score$subjectID
     if (transformNegWeight==TRUE){
