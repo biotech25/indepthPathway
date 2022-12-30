@@ -7,26 +7,26 @@ The current version is 2.8.5
 
 ## A. Introduction
 
-â€¢	Single-cell sequencing (SCS) enables exploring the pathways and processes of cells and cell populations, however, there is a paucity of pathway enrichment methods designed to tolerate the high noise and low gene coverage of SCS technology. When gene expression data are noisy and signals are sparse, testing pathway enrichment based on the genes measured may not yield statistically significant results which is particularly problematic when detecting the pathways enriched in less abundant cells that are vulnerable to disturbances.
+Single-cell sequencing (SCS) enables exploring the pathways and processes of cells and cell populations, however, there is a paucity of pathway enrichment methods designed to tolerate the high noise and low gene coverage of SCS technology. When gene expression data are noisy and signals are sparse, testing pathway enrichment based on the genes measured may not yield statistically significant results which is particularly problematic when detecting the pathways enriched in less abundant cells that are vulnerable to disturbances.
 
 Here we developed a Weighted Concept Signature Enrichment Analysis (WCSEA) algorithm specialized for pathway enrichment analysis from single cell transcriptomics (scRNA-seq), taking account of the levels of differential expressions to detect different magnitudes of pathway alterations, and substantially improve its noise resistance. WCSEA took a broader approach for assessing the functional relations of pathway gene sets to a target gene list, and leverage the universal concept signature of the target gene list (the cumulative signature of molecular concepts characteristic of the target gene list), to tolerate the high noise and low coverage of this technology.
 
 We then incorporated WCSEA into a R package called â€œIndepthPathwayâ€ for biologists to broadly leverage this method for pathway analysis based on bulk and single cell sequencing data. Through simulating the technical variability and dropouts in gene expression characteristic of scRNA-seq, WCSEA yielded overall low deviations in pathway enrichment results. This could be attributed to the computation of the universal concept signature prior to pathway enrichment analysis, which make WCSEA more resistant to noise and missing values of individual gene expressions.
 
-	Leveraging its unique strength, IndepthPathway will promote the application of bulk and single cell sequencing technologies to explore the cellular pathway mechanisms at more precise resolution.
+Leveraging its unique strength, IndepthPathway will promote the application of bulk and single cell sequencing technologies to explore the cellular pathway mechanisms at more precise resolution.
 
 ## B.	Basic requirements
 
-	The uniConSig and CSEA modules are compiled in an R package â€œIndepthPathwayâ€ held at https://github.com/wangxlab/IndepthPathway 
+The uniConSig and CSEA modules are compiled in an R package â€œIndepthPathwayâ€ held at https://github.com/wangxlab/IndepthPathway 
 
-	To install the package, first install R from CRAN: https://cran.r-project.org/
+To install the package, first install R from CRAN: https://cran.r-project.org/
 
-	For more user-friendly interface, R-Studio can be installed from here: https://www.rstudio.com/products/rstudio/download/
+For more user-friendly interface, R-Studio can be installed from here: https://www.rstudio.com/products/rstudio/download/
 
 
 ## C. Installing R Packages
 
-	Find "IndepthPathway.modulesVb2.8.5.R" file in your folder and see line 1. There is the list of R packages you may have to install unless you did.
+Find "IndepthPathway.modulesVb2.8.5.R" file in your folder and see line 1. There is the list of R packages you may have to install unless you did.
 ```
 packages=c("stringr","qvalue","vegan","tidyr","moments","limma","dplyr","gplots",
            "RColorBrewer","corrplot","pheatmap","igraph","otuSummary","pROC",
@@ -35,7 +35,7 @@ sapply(packages,require,character=TRUE)
 ```
 
 ## D.	How to run IndepthPathway for pathway enrichment analysis
-	To calculate uniConSig scores, please load the molecule concept dataset we compiled with precomputed Jaccard matrix:
+To calculate uniConSig scores, please load the molecule concept dataset we compiled with precomputed Jaccard matrix:
 ```
 #IMPORTANT: this code block is required for all calculations including both uniConSig and CSEA.
 setwd("your working directory")
